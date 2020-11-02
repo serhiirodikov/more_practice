@@ -5,12 +5,16 @@ import { Post } from '../app.component';
   name: 'trimPip',
 })
 export class TrimPipPipe implements PipeTransform {
-  transform(posts: Post[], search: string = ''): Post[] {
+  transform(
+    posts: Post[],
+    search: string = '',
+    searchField: string = 'title'
+  ): Post[] {
     if (!search.trim()) {
       return posts;
     }
     return posts.filter((post) => {
-      return post.title.toLowerCase().includes(search.toLowerCase());
+      return post[searchField].toLowerCase().includes(search.toLowerCase());
     });
   }
 }

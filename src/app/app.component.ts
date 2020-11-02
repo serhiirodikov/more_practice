@@ -14,6 +14,7 @@ export class AppComponent {
   e: number = Math.E;
   num: number = 0.45;
   title = 'more-practices-angular';
+  searchField = 'title';
   search = '';
   posts: Post[] = [
     { title: 'Bear', text: 'пиво добре ' },
