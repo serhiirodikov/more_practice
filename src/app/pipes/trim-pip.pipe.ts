@@ -3,6 +3,7 @@ import { Post } from '../app.component';
 
 @Pipe({
   name: 'trimPip',
+  pure: false,
 })
 export class TrimPipPipe implements PipeTransform {
   transform(

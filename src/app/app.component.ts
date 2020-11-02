@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface Post {
   title: string;
@@ -11,8 +12,6 @@ export interface Post {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  e: number = Math.E;
-  num: number = 0.45;
   title = 'more-practices-angular';
   searchField = 'title';
   search = '';
@@ -21,4 +20,14 @@ export class AppComponent {
     { title: 'Bread', text: 'хліб добре ' },
     { title: 'Javascript', text: 'js добре ' },
   ];
+
+  myDate$: Observable<Date> = new Observable((obs) => {
+    setInterval(() => {
+      obs.next(new Date());
+    }, 1000);
+  });
+
+  addPost() {
+    this.posts.unshift({ title: 'Angular', text: 'new post' });
+  }
 }
