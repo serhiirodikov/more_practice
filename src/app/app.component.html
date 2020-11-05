@@ -1,20 +1,47 @@
 <div class="container">
-  <h1>Andular directives</h1>
-  <h2>{{ myDate$ | async | date: "HH:mm:ss" }}</h2>
+  <form class="card">
+    <h1>Angular Forms</h1>
 
-  <button class="btn" type="button" (click)="searchField = 'title'">
-    Title
-  </button>
-  <button class="btn" type="button" (click)="searchField = 'text'">Text</button>
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="email" />
+      <div class="validation"></div>
+    </div>
+    <div class="form-control">
+      <label>Password</label>
+      <input type="password" placeholder="email" />
+      <div class="validation"></div>
+    </div>
 
-  <hr />
+    <div class="card">
+      <h2>Adress</h2>
 
-  <button class="btn" (click)="addPost()">Добавити пост</button>
+      <div class="form-control">
+        <label>Country</label>
 
-  <input type="text" [(ngModel)]="search" />
-  <div *ngFor="let post of posts | trimPip: search:searchField" class="card">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.text }}</p>
-  </div>
+        <select>
+          <option value="ru">Росія</option>
+          <option value="ua">Україна</option>
+          <option value="by">Білорусь</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <input type="text" />
+      </div>
+
+      <button class="btn">Вибрати столицю</button>
+    </div>
+    <div class="card">
+      <h2>Ваші навики</h2>
+      <button class="btn">Добавити вміння</button>
+      <div class="form-control">
+        <label></label>
+        <input type="text" />
+      </div>
+    </div>
+
+    <button class="btn">Відправити</button>
+  </form>
 </div>
 <router-outlet></router-outlet>
