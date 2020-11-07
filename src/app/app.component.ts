@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export interface Post {
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
         country: new FormControl('ua'),
         city: new FormControl('', Validators.required),
       }),
+      skills: new FormArray([]),
     });
   }
   submit() {
@@ -46,5 +47,10 @@ export class AppComponent implements OnInit {
     this.form.get('address').patchValue({
       city,
     });
+  }
+
+  addSkills() {
+    const control = new FormControl('', Validators.required);
+    (this.form.get('skills') as FormArray).push(control);
   }
 }

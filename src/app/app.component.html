@@ -61,12 +61,18 @@
         Вибрати столицю
       </button>
     </div>
-    <div class="card">
+    <div class="card" formGroupName="skills">
       <h2>Ваші навики</h2>
-      <button type="button" class="btn">Добавити вміння</button>
-      <div class="form-control">
-        <label></label>
-        <input type="text" />
+
+      <button type="button" class="btn" (click)="addSkills()">
+        Добавити вміння
+      </button>
+      <div
+        class="form-control"
+        *ngFor="let skill of form.get('skills')['controls']; let idx = index"
+      >
+        <label>Умение {{ idx + 1 }}</label>
+        <input type="text" [formControlName]="idx" />
       </div>
     </div>
 
